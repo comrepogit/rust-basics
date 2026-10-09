@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# Rust / Cargo
+# ---------------------------------------------------------------------------
+
+# Build output. 100% regenerable by `cargo build`; often hundreds of MB.
+# This is the single most important line in the file.
+target/
+
+# Old rustfmt backups.
+**/*.rs.bk
+
+# MSVC debug symbols (only produced by the windows-msvc target).
+*.pdb
+
+# NOTE: Cargo.lock is deliberately NOT ignored.
+#   - application / binary crate  -> COMMIT it (reproducible builds)
+#   - reusable library crate      -> historically ignored, now usually committed too
+# Every crate here is a binary, so committing it is correct.
+
+# ---------------------------------------------------------------------------
+# Profiling & coverage (you will hit these in Phase 9)
+# ---------------------------------------------------------------------------
+*.profraw
+*.profdata
+perf.data
+perf.data.old
+flamegraph.svg
+cargo-timing*.html
+
+# ---------------------------------------------------------------------------
+# Editors / IDEs
+# ---------------------------------------------------------------------------
+.idea/
+*.iml
+.vscode/*
+# ...but keep shared project config if you ever add it:
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Vim / Emacs / temp files
+*~
+*.swp
+*.swo
+\#*\#
+.\#*
+
+# ---------------------------------------------------------------------------
+# OS junk
+# ---------------------------------------------------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# macOS / Linux
+.DS_Store
+.directory
+
+# ---------------------------------------------------------------------------
+# Local environment — never push these
+# ---------------------------------------------------------------------------
+.env
+.env.local
+*.local
+.direnv/
